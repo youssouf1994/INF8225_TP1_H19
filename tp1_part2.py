@@ -28,4 +28,7 @@ losses = []
 accuracies = []
 
 def softmax(x):
-	
+	e = np.exp(x - max(x))
+	return e / e.sum()
+
+def get_accuracy(X, y, W)

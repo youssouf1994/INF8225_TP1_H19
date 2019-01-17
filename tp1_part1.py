@@ -21,19 +21,19 @@ print("Pr(Holmes | Pluie, Arroseur)={}\n".format(np.squeeze(holmes)))
 a = (watson * prob_pluie)[:,:,1,:].sum(0).squeeze()
 print("Pr(Watson=1)={}\n".format(a))
 
-# prob gazon watson mouille sachant que gazon holmes mouille.
+# prob gazon watson mouille si gazon holmes mouille.
 b = ((watson * holmes * prob_pluie * prob_arroseur)[:,:,1,1].sum((0, 1)).squeeze()) \
     /((holmes * prob_pluie * prob_arroseur)[:,:,:,1].sum((0, 1)).squeeze())
 print("Pr(Watson=1 | Holmes=1)={}\n".format(b))
 
-# prob gazon watson mouille sachat que gazon holmes mouille et arroseur ne fonctionne pas.
+# prob gazon watson mouille si gazon holmes mouille - arroseur.
 c = ((watson * holmes * prob_pluie)[:,0,1,1].sum(0).squeeze())/((holmes * prob_pluie)[:,0,:,1].sum(0).squeeze())
 print("Pr(Watson=1 | Holmes=1, Arroseur=0)={}\n".format(c))
 
-# prob gazon watson mouille sachant que arroseur ne fonctionne pas.
+# prob gazon watson mouille si - arroseur.
 d = (watson * prob_pluie)[:,0,1,:].sum(0).squeeze()
 print("Pr(Watson=1 | Arroseur=0)={}\n".format(d))
 
-# prob gazon watson mouille sachant que pluie tombe.
+# prob gazon watson mouille si pluie.
 e = watson[1,:,1,:].squeeze()
 print("Pr(Watson=1 | Pluie=1)={}\n".format(e))
