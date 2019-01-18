@@ -13,7 +13,7 @@ y = digits.target
 y_one_hot = np.zeros((y.shape[0], len(np.unique(y))))
 y_one_hot[np.arange(y.shape[0]), y] = 1
 
-lrs = [0.1, 0.01, 0.001]
+lrs = [0.1, 0.01, 0.001, 0.0001]
 nb_epochs = 50
 minibatch_sizes = [1, 20, 200, 1000]
 
